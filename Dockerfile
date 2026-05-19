@@ -42,4 +42,5 @@ EXPOSE 80
 # Команда запуска: этот образ по умолчанию запускает Nginx сам (как демон),
 # поэтому нам достаточно просто запустить наш Node.js бэкенд в качестве основной команды
 # CMD ["node", "dist/app.js"]
-CMD node dist/app.js & nginx -g "daemon off;"
+# CMD node dist/app.js & nginx -g "daemon off;"
+CMD PORT=$BACKEND_PORT node dist/app.js & nginx -g "daemon off;"
