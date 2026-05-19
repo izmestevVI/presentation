@@ -1,0 +1,577 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+/* ==========================================================================
+   RESET & BASE STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-main;
+  color: $color-text-dark;
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 100px 0;
+  @include respond-to("mobile") {
+    padding: 60px 0;
+  }
+}
+
+/* Утилитарные классы модификаторов фона */
+.bg-light { background-color: $color-bg-light; }
+.bg-dark  { background-color: $color-bg-dark; }
+.text-light { color: $color-text-light; }
+
+/* Селекторы общих заголовков секций */
+.section {
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 48px;
+    text-align: center;
+    letter-spacing: -0.025em;
+
+    &.text-left {
+      text-align: left;
+      @include respond-to("tablet") {
+        text-align: center;
+      }
+    }
+  }
+
+  &__subtitle {
+    color: $color-primary;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  border-bottom: 1px solid #e2e8f0;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+  }
+
+  &__logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: $color-secondary;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    
+    @include respond-to("mobile") {
+      gap: 16px;
+    }
+  }
+
+  &__link {
+    color: $color-text-dark;
+    text-decoration: none;
+    font-weight: 500;
+    transition: $transition;
+
+    &:hover { 
+      color: $color-primary; 
+    }
+
+    @include respond-to("mobile") {
+      display: none; /* Скрываем ссылки на мобилках, оставляем только action-кнопку */
+    }
+  }
+
+  &__btn {
+    background: $color-secondary;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: $transition;
+
+    &:hover { 
+      background: $color-primary; 
+    }
+  }
+}
+
+/* ==========================================================================
+   SECTION: ABOUT (О СЕБЕ)
+   ========================================================================== */
+.about { 
+  margin-top: 72px; 
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 64px;
+    align-items: center;
+
+    @include respond-to("tablet") {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+
+    @include respond-to("tablet") {
+      font-size: 2.5rem;
+    }
+    @include respond-to("mobile") {
+      font-size: 2rem;
+    }
+  }
+
+  &__text {
+    font-size: 1.125rem;
+    color: #64748b;
+    margin-bottom: 32px;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__skills {
+    background: $color-bg-light;
+    padding: 40px;
+    border-radius: $border-radius;
+    border: 1px solid #e2e8f0;
+
+    &-title { 
+      margin-bottom: 24px; 
+      font-weight: 700; 
+    }
+  }
+}
+
+/* Теги технологического стека */
+.skills-tags { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+}
+
+.tag {
+  background: #ffffff;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid #e2e8f0;
+
+  &--primary { 
+    background: $color-primary; 
+    color: white; 
+    border-color: $color-primary; 
+  }
+
+  &--secondary { 
+    background: #e0f2fe; 
+    color: #0369a1; 
+    border-color: #bae6fd; 
+  }
+}
+
+/* ==========================================================================
+   SECTION: APPROACH (ПОДХОД И AI)
+   ========================================================================== */
+.approach {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+
+    @include respond-to("tablet") {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+}
+
+.card {
+  background: #ffffff;
+  padding: 48px;
+  border-radius: $border-radius;
+  border: 1px solid #e2e8f0;
+  transition: $transition;
+
+  &:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04); 
+  }
+
+  &--accent { 
+    border-left: 4px solid $color-accent; 
+    
+    .card__icon { 
+      color: $color-accent; 
+    }
+  }
+
+  &__icon {
+    font-size: 2rem;
+    color: $color-primary;
+    margin-bottom: 24px;
+  }
+
+  &__title { 
+    font-size: 1.5rem; 
+    margin-bottom: 16px; 
+    font-weight: 700; 
+  }
+
+  &__text { 
+    color: #64748b; 
+  }
+}
+
+/* ==========================================================================
+   SECTION: CASES (КЕЙСЫ)
+   ========================================================================== */
+.cases {
+  &__list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+  }
+}
+
+.case-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: $border-radius;
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+
+  @include respond-to("mobile") {
+    padding: 24px;
+  }
+
+  &__badge {
+    display: inline-block;
+    background: #dcfce7;
+    color: #15803d;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+
+    &.bg-purple { 
+      background: #f3e8ff; 
+      color: #6b21a8; 
+    }
+  }
+
+  &__title { 
+    font-size: 1.75rem; 
+    margin-bottom: 16px; 
+    font-weight: 700; 
+
+    @include respond-to("mobile") {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__text { 
+    color: #64748b; 
+    margin-bottom: 24px; 
+    font-size: 1.05rem; 
+  }
+
+  &__list {
+    list-style-position: inside;
+    color: $color-text-dark;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* ==========================================================================
+   SECTION: CONTACTS & FORM
+   ========================================================================== */
+.contact {
+  &__grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+
+    @include respond-to("tablet") {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__text { 
+    color: #94a3b8; 
+    margin-bottom: 32px; 
+    font-size: 1.125rem; 
+  }
+
+  &__links { 
+    display: flex; 
+    gap: 20px; 
+
+    @include respond-to("tablet") {
+      justify-content: center;
+    }
+  }
+
+  &__link-item {
+    color: #fff;
+    text-decoration: none;
+    background: $color-card-dark;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: $transition;
+    border: 1px solid #334155;
+
+    &:hover { 
+      background: $color-primary; 
+      border-color: $color-primary; 
+    }
+  }
+
+  &__info {
+    @include respond-to("tablet") {
+      text-align: center;
+    }
+  }
+
+  &__form-wrapper {
+    background: $color-card-dark;
+    padding: 40px;
+    border-radius: $border-radius;
+    border: 1px solid #334155;
+
+    @include respond-to("mobile") {
+      padding: 24px;
+    }
+  }
+}
+
+/* Стили формы обратной связи */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &--invalid {
+      .form__input { border-color: $color-error; }
+      .form__error-msg { display: block; }
+    }
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #cbd5e1;
+  }
+
+  &__input {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 14px 16px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: $transition;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0px 1000px #0f172a inset;
+      -webkit-text-fill-color: #fff;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  &__ai-btn {
+    align-self: flex-start;
+    background: linear-gradient(135deg, #6b21a8, #3b82f6);
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 6px;
+    transition: $transition;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &:hover { 
+      opacity: 0.9; 
+      transform: translateY(-1px); 
+    }
+  }
+
+  &__submit-btn {
+    background: $color-primary;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: $transition;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &:hover { 
+      background: $color-primary-hover; 
+    }
+  }
+
+  /* Состояния валидации текста ошибок */
+  &__error-msg {
+    color: $color-error;
+    font-size: 0.8rem;
+    display: none;
+  }
+
+  &__error-ai {
+    color: $color-error;
+    font-size: 0.8rem;
+  }
+
+  /* Компоненты статусов ответа сервера */
+  &__status {
+    display: none;
+    padding: 16px;
+    border-radius: 8px;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.95rem;
+
+    i { 
+      font-size: 1.25rem; 
+      margin-top: 3px; 
+    }
+
+    &--success { 
+      background: rgba(34, 197, 94, 0.1); 
+      border: 1px solid $color-success; 
+      color: #4ade80; 
+    }
+
+    &--error { 
+      background: rgba(239, 68, 68, 0.1); 
+      border: 1px solid $color-error; 
+      color: #f87171; 
+    }
+  }
+
+  /* Управление состояниями (классы вешаются на тег <form>) */
+  &--loading {
+    .btn-text { opacity: 0; }
+    .btn-loader { display: block; }
+    .form__submit-btn { pointer-events: none; }
+  }
+
+  &--success .form__status--success { display: flex; }
+  &--error   .form__status--error   { display: flex; }
+}
+
+/* Спиннер лоадера */
+.btn-loader {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  position: absolute;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+// Селектор стыковки секции контактов с футером
+.contact + .footer { 
+  border-top: 1px solid #334155; 
+  background: $color-bg-dark; 
+}

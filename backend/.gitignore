@@ -1,0 +1,32 @@
+# Зависимости (node_modules)
+node_modules/
+/jspm_packages/
+
+# Папка со скомпилированным JavaScript (результат tsc / npm run build)
+dist/
+build/
+
+# Секретные файлы и конфигурации окружения (КРИТИЧЕСКИ ВАЖНО)
+.env
+.env.local
+.env.*.local
+
+# Логи
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Системные файлы операционных систем
+.DS_Store
+Thumbs.db
+
+# Настройки сред разработки (IDE)
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

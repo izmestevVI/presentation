@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullstack Developer | Портфолио & Презентация</title>
+  <!-- Подключаем иконки для красоты (опционально) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Хедер / Навигация -->
+  <header class="header">
+    <div class="container header__container">
+      <div class="header__logo">&lt;DEV/&gt;</div>
+      <nav class="header__nav">
+        <a href="#about" class="header__link">О себе</a>
+        <a href="#approach" class="header__link">Подход & AI</a>
+        <a href="#cases" class="header__link">Кейсы</a>
+        <a href="#contact" class="header__btn">Связаться</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Секция 1: Информация о себе -->
+    <section id="about" class="section about">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__content">
+            <span class="section__subtitle">Fullstack Developer</span>
+            <h1 class="about__title">Создаю высоконагруженные интерфейсы и эффективные решения</h1>
+            <p class="about__text">
+              Специализируюсь на разработке сложных клиентских интерфейсов, проектировании UI-Kit библиотек и интеграции
+              современных инструментов автоматизации в рабочий процесс.
+            </p>
+            <div class="about__meta">
+              <div class="about__meta-item"><strong>Опыт:</strong> Более 3 лет коммерческой разработки</div>
+              <div class="about__meta-item"><strong>Локация:</strong> Санкт-Петербург / Удаленно</div>
+            </div>
+          </div>
+          <div class="about__skills">
+            <h3 class="about__skills-title">Технологический стек</h3>
+            <div class="skills-tags">
+              <span class="tag tag--primary">TypeScript / JavaScript</span>
+              <span class="tag">Angular (Signals, Standalone)</span>
+              <span class="tag">HTML5 / SCSS / CSS3</span>
+              <span class="tag">RxJS / NgRx</span>
+              <span class="tag">Ag-Grid / Chart.js</span>
+              <span class="tag">Vitest / Playwright (E2E)</span>
+              <span class="tag tag--secondary">Node.js / Go (Backend)</span>
+              <span class="tag tag--secondary">Docker / Git</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 2: Как я работаю & AI инструменты -->
+    <section id="approach" class="section approach bg-light">
+      <div class="container">
+        <h2 class="section__title">Подход к работе & Синергия с AI</h2>
+        <div class="approach__grid">
+          <div class="card">
+            <div class="card__icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3 class="card__title">Инженерный подход</h3>
+            <p class="card__text">
+              Разрабатываю интерфейсы как масштабируемые системы. Проектирую чистую модульную архитектуру, предсказуемый
+              data-flow и переиспользуемые UI-компоненты. Приоритеты: типизация, производительность и доступность.
+            </p>
+          </div>
+          <div class="card card--accent">
+            <div class="card__icon"><i class="fa-solid fa-robot"></i></div>
+            <h3 class="card__title">Интеграция AI (ИИ)</h3>
+            <p class="card__text">
+              Использую AI-ассистентов (Copilot/OpenCode) как мультипликатор эффективности. Доверяю ИИ рутинную
+              генерацию бойлерплейт-кода, написание базовых unit-тестов и брейншторминг алгоритмов, фокусируясь на
+              архитектуре и бизнес-логике.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 3: Кейсы / Опыт -->
+    <section id="cases" class="section cases">
+      <div class="container">
+        <h2 class="section__title">Выделенный опыт и кейсы</h2>
+        <div class="cases__list">
+
+          <!-- Кейс 1 -->
+          <div class="case-item">
+            <div class="case-item__info">
+              <span class="case-item__badge">Commercial</span>
+              <h3 class="case-item__title">Личный кабинет крупной логистической компании</h3>
+              <p class="case-item__text">
+                Разработка и поддержка высоконагруженного личного кабинета клиента (1000+ активных пользователей).
+                Высокая сложность интерфейсов, дашбордов и управления состоянием данных.
+              </p>
+              <ul class="case-item__list">
+                <li><strong>Что сделано лично:</strong> Проектирование и разработка core-компонентов внутренней UI-Kit
+                  библиотеки компании.</li>
+                <li>Внедрение сложных интерактивных таблиц и аналитических графиков.</li>
+                <li>Оптимизация производительности рендеринга больших массивов данных.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Кейс 2 -->
+          <div class="case-item">
+            <div class="case-item__info">
+              <span class="case-item__badge bg-purple">Pet / R&D</span>
+              <h3 class="case-item__title">Инфраструктурный апгрейд и автоматизация</h3>
+              <p class="case-item__text">
+                Перевод крупного проекта на актуальные версии фреймворка с полной перестройкой пайплайна тестирования.
+              </p>
+              <ul class="case-item__list">
+                <li><strong>Что сделано лично:</strong> Миграция кодовой базы (апгрейд на 9+ версий вперед).</li>
+                <li>Внедрение сквозного E2E-тестирования на Playwright, сократившее время регресса.</li>
+                <li>Настройка конфигурации тестов на сверхбыстром движке Vitest.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция 4: Контакты и Форма -->
+    <section id="contact" class="section contact bg-dark text-light">
+      <div class="container">
+        <div class="contact__grid">
+          <div class="contact__info">
+            <h2 class="section__title text-left">Давайте сотрудничать</h2>
+            <p class="contact__text">
+              Откройте форму обратной связи, отправьте сообщение, и настроенный Node.js API мгновенно перенаправит его
+              мне на почту с параллельной обработкой через AI.
+            </p>
+            <div class="contact__links">
+              <a href="https://github.com/izmestevVI" target="_blank" rel="noopener noreferrer" class="contact__link-item"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="https://t.me/IzmestevVI" target="_blank" rel="noopener noreferrer" class="contact__link-item"><i class="fa-brands fa-telegram"></i> Telegram</a>
+            </div>
+          </div>
+
+          <div id="formContainer"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Fullstack Developer Portfolio.</p>
+    </div>
+  </footer>
+
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
